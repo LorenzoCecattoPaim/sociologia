@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 // Troque REPO pelo nome do seu repositório no GitHub.
-const REPO = 'liberalismo-site'
+const REPO = 'sociologia'
 export default defineConfig({
   plugins: [react()],
   // Em subdiretório (GitHub Pages) usa /REPO/; localmente usa /.
