@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from 'react'
-import { timeline, principles, thinkers, cenarios, criticas, fluxo, ramos } from './data/content'
+import { timeline, principles, thinkers, cenarios, criticas, tipos, sociologia, fluxo, ramos } from './data/content'
 import { Simulator, Labor, Quiz } from './components/Interactive'
 
 function Timeline() {
@@ -14,6 +14,15 @@ function Principles() {
   return <div className="grid">{principles.map((p, i) => <div key={p.t} className="panel">
     <h3>{p.t}</h3><button className="chip" aria-expanded={o === i} onClick={() => setO(o === i ? null : i)}>{o === i ? 'Recolher' : 'Expandir'}</button>
     {o === i && <><p>{p.e}</p><p><b>Exemplo:</b> {p.ex}</p><p><b>Pensador:</b> {p.p}</p><p><em>{p.q}</em></p></>}</div>)}</div>
+}
+function Sociology() {
+  const [k, setK] = useState(0), [j, setJ] = useState(0)
+  return <div><p>A Sociologia pergunta como as ideias liberais mudaram as instituições e as relações entre as pessoas. Primeiro, quatro termos que não são sinônimos:</p>
+    {tipos.map((t, i) => <button key={t[0]} className="chip" aria-pressed={k === i} onClick={() => setK(i)}>{t[0]}</button>)}
+    <div className="panel" role="status"><p>{tipos[k][1]}</p></div>
+    <h3 style={{ marginTop: '2rem' }}>Cinco questões sociológicas</h3>
+    {sociologia.map((t, i) => <button key={t[0]} className="chip" aria-pressed={j === i} onClick={() => setJ(i)}>{t[0]}</button>)}
+    <div className="panel" role="status"><p>{sociologia[j][1]}</p></div></div>
 }
 function State() {
   const [c, setC] = useState(0), [o, setO] = useState<number | null>(null)
@@ -42,11 +51,12 @@ function Criticism() {
   return <div className="grid">{criticas.map(c => <details key={c.t} className="panel"><summary><strong>{c.t}</strong></summary>
     <p><b>Problema:</b> {c.p}</p><p><b>Por que importa:</b> {c.w}</p><p><b>Perspectivas liberais:</b> {c.l}</p><p><b>Crítica alternativa:</b> {c.c}</p><p><em>{c.q}</em></p></details>)}</div>
 }
-const refs = ['Locke, John — Dois Tratados sobre o Governo (obra primária)','Smith, Adam — A Riqueza das Nações (obra primária)','Hayek, Friedrich A. — O Caminho da Servidão (obra primária)','Hayek, Friedrich A. — The Use of Knowledge in Society (obra primária)','Friedman, Milton — Capitalismo e Liberdade (obra primária)','Friedman, Milton; Schwartz, Anna J. — A Monetary History of the United States (obra primária)','Fontes secundárias: Stanford Encyclopedia of Philosophy; Encyclopaedia Britannica; Library of Economics and Liberty.']
+const refs = ['Locke, John. Dois Tratados sobre o Governo (1689). Seções: contexto, princípios, pensadores.','Smith, Adam. A Riqueza das Nações (1776). Seções: divisão do trabalho, mercado, pensadores.','Hayek, Friedrich A. O Caminho da Servidão (1944). Seções: pensadores, Estado.','Hayek, Friedrich A. The Use of Knowledge in Society. American Economic Review (1945). Seções: pensadores, infográfico.','Friedman, Milton. Capitalismo e Liberdade (1962). Seção: pensadores.','Friedman, Milton; Schwartz, Anna J. A Monetary History of the United States, 1867-1960 (1963). Seção: pensadores.','Marshall, T. H. Cidadania, Classe Social e Status (1950). Seção: Sociologia.','Polanyi, Karl. A Grande Transformação (1944). Seção: Sociologia.','Bobbio, Norberto. Liberalismo e Democracia (1988). Seção: Sociologia (tipos de liberalismo).','Fontes de apoio (consulta geral): Stanford Encyclopedia of Philosophy; Encyclopaedia Britannica; Library of Economics and Liberty.','Observação: títulos e anos conferidos de memória; confirmar edições e páginas na biblioteca antes de citar no trabalho escrito.']
 
 const secs: { id: string; nav: string; title: string; body: () => ReactNode }[] = [
  { id: 'contexto', nav: 'Contexto histórico', title: 'Como surgiu o liberalismo clássico?', body: () => <Timeline /> },
  { id: 'principios', nav: 'Princípios fundamentais', title: 'Princípios fundamentais', body: () => <><p>Existem diferentes tradições liberais, e nem todos os autores defendem as mesmas funções para o Estado.</p><Principles /></> },
+ { id: 'sociologia', nav: 'Sociologia', title: 'O olhar sociológico sobre o liberalismo', body: () => <Sociology /> },
  { id: 'mercado', nav: 'O mercado', title: 'Como o mercado coordena a economia?', body: () => <><p>Uma cidade tem consumidores e padeiros. Mexa nos controles e veja o equilíbrio mudar.</p><Simulator /></> },
  { id: 'trabalho', nav: 'Divisão do trabalho', title: 'Como a divisão do trabalho pode gerar riqueza?', body: () => <><p>Em A Riqueza das Nações (1776), Smith descreve a fabricação de alfinetes: especialização, economia de tempo e aperfeiçoamento de ferramentas.</p><Labor /></> },
  { id: 'estado', nav: 'O papel do Estado', title: 'Estado mínimo ou ausência de Estado?', body: () => <State /> },
@@ -82,14 +92,15 @@ export default function App() {
       {secs.map(x => <li key={x.id}><a href={'#' + x.id} className={cur === x.id ? 'on' : ''} aria-current={cur === x.id ? 'true' : undefined}>{x.nav}</a></li>)}
       <li><button className="chip" onClick={() => setPres(0)}>Modo apresentação</button></li></ul><div className="bar" style={{ width: prog + '%' }} role="progressbar" aria-label="Progresso" aria-valuenow={Math.round(prog)} /></nav>
     <main>
-      <section id="inicio" className="hero"><p className="mut">Das ideias iluministas à economia de mercado.</p>
+      <section id="inicio" className="hero"><p className="mut">Liberalismo — A ideia de liberdade · Das ideias iluministas à economia de mercado.</p>
         <h1>Quem deve decidir os rumos da economia?</h1><h2 style={{ fontSize: '1.3rem', color: 'var(--fg)' }}>Uma viagem pelas ideias que transformaram a liberdade, a política e as relações econômicas.</h2>
         <p>O liberalismo clássico contribuiu para transformar a maneira de compreender a liberdade individual, a propriedade, os limites do poder político e o funcionamento das relações econômicas. Suas ideias ajudaram a moldar o mundo moderno e continuam presentes nos debates sobre riqueza, desigualdade e liberdade.</p>
         <div className="trio">{pieces.map((p, i) => <button key={p[0]} className="panel" aria-pressed={pc === i + 1} onClick={() => setPc(pc === i + 1 ? 0 : i + 1)}><h3>{p[0]}</h3>{pc === i + 1 && <p>{p[1]}</p>}</button>)}</div>
+        <p className="mut" style={{ borderTop: '1px solid var(--gold)', paddingTop: '.8rem' }}>Sociologia · Professora Marta<br />Alunos: Lorenzo, Sofia e Pedro<br />Escola Estadual de Ensino Médio Álvaro Laureano Brum</p>
         <p><a className="btn" href="#contexto" style={{ textDecoration: 'none', display: 'inline-block' }}>Iniciar a experiência</a></p></section>
       {secs.map(x => <section key={x.id} id={x.id}><div className="in"><h2>{x.title}</h2>{x.body()}</div></section>)}
     </main>
-    <footer style={{ padding: '2rem', textAlign: 'center' }} className="mut">Projeto educacional. Ilustrações em SVG originais; sem imagens externas.</footer>
+    <footer style={{ padding: '2rem', textAlign: 'center' }} className="mut">Sociologia · Professora Marta · Alunos: Lorenzo, Sofia e Pedro · Escola Estadual de Ensino Médio Álvaro Laureano Brum. Tema: Liberalismo Clássico. Ilustrações em SVG originais.</footer>
     {s && <div className="pres" role="dialog" aria-label="Modo de apresentação"><section><h2>{s.title}</h2>{s.body()}</section>
       <div className="ctl"><button className="btn ghost" onClick={() => setPres(Math.max(0, pres! - 1))}>Voltar</button><span style={{ alignSelf: 'center' }}>{pres! + 1}/{secs.length}</span>
         <button className="btn" onClick={() => setPres(Math.min(secs.length - 1, pres! + 1))}>Avançar</button><button className="btn ghost" onClick={() => setPres(null)}>Sair</button></div></div>}

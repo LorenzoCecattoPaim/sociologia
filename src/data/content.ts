@@ -63,3 +63,18 @@ export const quiz = [
  {q:'(Avançada) Poluição de um rio por uma fábrica é exemplo de:',o:['Monopólio','Externalidade','Divisão do trabalho','Cartel'],a:1,e:'É um custo imposto a terceiros fora da transação.'},
  {q:'(Avançada) Por que aumentar a produtividade não garante melhor distribuição?',o:['Porque produtividade nunca aumenta','Porque ganhos podem se distribuir desigualmente, dependendo de instituições e poder de negociação','Porque preços são fixos','Porque o Estado produz tudo'],a:1,e:'Produzir mais não significa, automaticamente, distribuir melhor.'},
 ]
+
+export const tipos=[
+ ['Liberalismo clássico','Séculos XVII–XIX (Locke, Smith): direitos individuais, governo limitado por leis e trocas econômicas com menos restrições do que no mercantilismo e no absolutismo.'],
+ ['Liberalismo político','Defesa de direitos, constituições, separação de poderes e consentimento dos governados. Pode existir sem defender liberdade econômica ampla.'],
+ ['Liberalismo econômico','Defesa de propriedade, concorrência e trocas voluntárias. Varia muito quanto ao papel do Estado.'],
+ ['Liberalismo contemporâneo','Nome usado em sentidos diferentes: nos EUA, "liberal" costuma designar quem aceita mais intervenção social do Estado; na Europa e no Brasil, tende a designar a defesa de mais liberdade de mercado.'],
+ ['Neoliberalismo','Termo disputado. Refere-se a correntes do século XX que defendem mercados e concorrência (Hayek, Friedman) e, em uso crítico, às reformas de mercado a partir dos anos 1970-80. Não é sinônimo de liberalismo clássico.'],
+]
+export const sociologia=[
+ ['Igualdade jurídica x igualdade de condições','O liberalismo ajudou a firmar que todos são iguais perante a lei, em oposição a sociedades de privilégios de nascimento. Mas igualdade formal não elimina diferenças de renda, escolaridade e herança. Para T. H. Marshall, a cidadania se ampliou em etapas (direitos civis, políticos e sociais); os direitos sociais surgiram em boa parte para enfrentar desigualdades que a igualdade formal deixava intactas.'],
+ ['Liberdade individual e vida coletiva','A liberdade individual depende de instituições coletivas: tribunais, contratos, escolas e segurança. Pensar a sociedade como soma de indivíduos ou como estrutura que molda escolhas é uma tensão central da Sociologia.'],
+ ['Propriedade, poder econômico e organização social','Para Locke, a propriedade é um direito que limita o poder do governante. Críticos, como Marx, argumentam que a propriedade dos meios de produção também gera poder de uma classe sobre outra. Os dois olhares ajudam a entender o tema.'],
+ ['Mercado como instituição social','Karl Polanyi (A Grande Transformação, 1944) sustentou que mercados dependem de normas, leis e Estado, e que a expansão do mercado gerou reações sociais de proteção. É uma interpretação de um autor, não consenso.'],
+ ['Efeitos históricos e atuais','Ideias liberais influenciaram constituições, direitos civis e a economia moderna. Também conviveram com exclusões: a escravidão e a negação de direitos políticos às mulheres e aos pobres. Debates atuais sobre desigualdade, trabalho e regulação continuam essa discussão.'],
+]
